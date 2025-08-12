@@ -1,8 +1,8 @@
-# 🚨 Real-Time Threat Detection System
+# Real-Time Threat Detection System
 
 A specialized deep learning system designed for **real-time crime detection** using webcam feeds. The system detects people and weapons, and generates **"CRIME DETECTED"** alerts when weapons are found near people.
 
-## 📋 Project Information
+## Project Information
 
 **Created By:** Fahd Shah, 2025  
 **Institution:** Loughborough University  
@@ -13,15 +13,14 @@ Designed as apart of a MSc Systems Engineering Thesis Project:
 
 **And Remember:** *Ad Astra*
 
-## 🎯 Key Features
+## Features
 
-- **👤 Person Detection**: Accurate identification of people in real-time
-- **🔫 Weapon Detection**: Detects guns, knives, scissors, and other weapons
-- **🚨 Crime Detection**: Special "CRIME DETECTED" alerts when person + weapon detected together
-- **📹 Real-Time Processing**: Live webcam feed processing at 30 FPS
-- **🔊 Audio Alerts**: Sound notifications for threat detection
-- **💻 GPU Acceleration**: Uses your graphics card for faster processing
-- **📊 Live Statistics**: Real-time detection counters and performance metrics
+- ** Person Detection**: Accurate identification of people in real-time
+- ** Weapon Detection**: Detects guns, knives, scissors, and other weapons
+- ** Crime Detection**: Special "CRIME DETECTED" alerts when person + weapon detected together
+- ** Real-Time Processing**: Live webcam feed processing at 30 FPS
+- ** Audio Alerts**: Sound notifications for threat detection
+- ** Live Statistics**: Real-time detection counters and performance metrics
 
 ## Project Structure
 
