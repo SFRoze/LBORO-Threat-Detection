@@ -38,26 +38,6 @@ threat_detection_system/
 └── requirements.txt     # Python dependencies
 ```
 
-## 🚀 Quick Start (Beginner-Friendly)
-
-### Option 1: Super Easy Start
-```bash
-python start_threat_detection.py
-```
-This launches an interactive setup that guides you through camera selection and starts real-time detection!
-
-### Option 2: Manual Setup
-```bash
-# 1. Install everything automatically
-python quick_start.py
-
-# 2. Start real-time detection
-python src/realtime_threat_detector.py
-
-# 3. Or start with specific camera
-python src/realtime_threat_detector.py --camera 0
-```
-
 ## Configuration
 
 Edit `src/config/config.yaml` to customize:
