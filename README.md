@@ -11,8 +11,6 @@ A specialized deep learning system designed for **real-time crime detection** us
 Designed as apart of a MSc Systems Engineering Thesis Project:  
 *"Predictive Policing: Balancing Efficiency & Ethics in AI-Enhanced Crime Prevention"*
 
-**And Remember:** *Ad Astra*
-
 ## Features
 
 - ** Person Detection**: Accurate identification of people in real-time
