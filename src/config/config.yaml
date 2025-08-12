@@ -1,0 +1,156 @@
+# Threat Detection System Configuration
+
+# Model Settings
+model:
+  # Primary model for general object detection
+  primary_model: "yolov8n.pt"  # Options: yolov8n.pt, yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+  
+  # Custom model for threat-specific detection (if available)
+  custom_model: null  # Path to custom trained model
+  
+  # Device for inference
+  device: "auto"  # Options: "auto", "cpu", "cuda", "mps"
+  
+  # Model confidence threshold
+  confidence_threshold: 0.5
+  
+  # Non-maximum suppression threshold
+  nms_threshold: 0.45
+
+# Detection Classes
+classes:
+  # COCO dataset classes (0-79)
+  person: 0
+  
+  # Weapon classes (we'll use a pre-trained weapon detection model)
+  knife: 43  # COCO scissors class - we'll expand this
+  
+  # High priority classes for threat detection
+  high_priority:
+    - 0  # person
+  
+  # Weapon/threat classes for crime detection
+  weapon_classes:
+    - "knife"
+    - "scissors"
+    - "gun"
+    - "pistol"
+    - "rifle"
+    - "weapon"
+    - "baseball bat"
+    - "bat"
+    - "stick"
+    - "club"
+    - "rod"
+    - "pole"
+  
+  # Custom threat classes (weapon detection model)
+  custom_threats:
+    gun: 80
+    knife: 81
+    pistol: 82
+    rifle: 83
+    weapon: 84
+    baseball_bat: 85
+    bat: 86
+    stick: 87
+    club: 88
+
+# Alert System
+alerts:
+  # Enable/disable different alert types
+  person_detection: true
+  weapon_detection: true
+  crime_detection: true  # Special alert when person + weapon detected together
+  
+  # Crime detection settings
+  crime_proximity_threshold: 100  # pixels - how close person and weapon need to be
+  crime_confidence_minimum: 0.6  # Lower threshold for crime detection
+  
+  # Alert methods
+  console_output: true
+  log_file: true
+  email_alerts: false
+  webhook_alerts: false
+  sound_alerts: true  # Enable sound alerts for crimes
+  
+  # Alert thresholds
+  confidence_minimum: 0.5  # General confidence minimum
+  weapon_confidence_minimum: 0.4  # Lower threshold for weapons (harder to detect)
+
+# Processing Settings
+processing:
+  # Input settings
+  input_size: [640, 640]  # Model input dimensions
+  
+  # Video processing
+  fps_limit: 30  # Maximum FPS for video processing
+  skip_frames: 0  # Skip every N frames (0 = process all)
+  
+  # Batch processing
+  batch_size: 1  # Number of images/frames to process simultaneously
+  
+  # Output settings
+  save_detections: true
+  output_format: "mp4"  # For video output
+  draw_boxes: true
+  draw_labels: true
+  draw_confidence: true
+
+# Paths
+paths:
+  models: "data/models"
+  output: "output"
+  logs: "logs"
+  temp: "temp"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  console: true
+  file: true
+  max_file_size: "10MB"
+  backup_count: 5
+
+# Performance
+performance:
+  # Multi-threading
+  num_workers: 4
+  
+  # Memory management
+  max_memory_usage: "2GB"
+  clear_cache_interval: 100  # Clear cache every N detections
+  
+  # Optimization
+  half_precision: false  # Use FP16 for faster inference (requires compatible GPU)
+  tensorrt: false  # Use TensorRT optimization (NVIDIA GPUs only)
+
+# Security and Privacy
+security:
+  # Data retention
+  keep_detections: 7  # Days to keep detection results
+  anonymize_faces: false  # Blur faces in saved outputs
+  
+  # Access control
+  require_authentication: false
+  api_key: null
+  
+  # Audit logging
+  audit_log: true
+  log_all_accesses: true
+
+# Integration
+integration:
+  # REST API
+  api_enabled: false
+  api_port: 8080
+  api_host: "localhost"
+  
+  # Streaming
+  rtmp_output: false
+  rtmp_url: null
+  
+  # Database
+  database_enabled: false
+  database_type: "sqlite"  # sqlite, postgresql, mysql
+  database_url: null
