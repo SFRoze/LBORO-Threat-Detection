@@ -67,7 +67,6 @@ The system automatically saves screenshots when:
 - Naming format: `threat_detection_screenshot_YYYYMMDD_HHMMSS.jpg`
 - Include detection boxes, confidence scores, and status overlay
 - Serve as evidence with timestamp information
-
 ## Configuration
 
 Edit `src/config/config.yaml` to customize:
