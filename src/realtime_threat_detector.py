@@ -12,6 +12,7 @@ import time
 import sys
 import logging
 import threading
+import os
 from pathlib import Path
 from datetime import datetime
 import winsound  # For Windows sound alerts
@@ -80,7 +81,28 @@ class RealTimeThreatDetector:
         self.window_name = "🚨 Real-Time Threat Detection System"
         self.display_size = (1280, 720)  # Resize display for better viewing
         
+        # Screenshots directory setup
+        self.screenshots_dir = Path("screenshots")
+        self.setup_screenshots_directory()
+        
         self.logger.info("Real-time threat detector initialized")
+    
+    def setup_screenshots_directory(self):
+        """Create screenshots directory if it doesn't exist."""
+        try:
+            # Create screenshots directory in the project root
+            project_root = Path(__file__).parent.parent  # Go up from src/ to project root
+            self.screenshots_dir = project_root / "screenshots"
+            
+            # Create the directory if it doesn't exist
+            self.screenshots_dir.mkdir(exist_ok=True)
+            
+            self.logger.info(f"Screenshots directory ready: {self.screenshots_dir}")
+            
+        except Exception as e:
+            self.logger.warning(f"Could not create screenshots directory: {e}")
+            # Fallback to current directory
+            self.screenshots_dir = Path(".")
     
     def initialize_camera(self):
         """Initialize the camera."""
@@ -238,11 +260,16 @@ class RealTimeThreatDetector:
                     self.logger.info("Quit requested by user")
                     break
                 elif key == ord('s'):
-                    # Save screenshot
+                    # Save screenshot to screenshots directory
                     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                     filename = f"threat_detection_screenshot_{timestamp}.jpg"
-                    cv2.imwrite(filename, annotated_frame)
-                    self.logger.info(f"Screenshot saved: {filename}")
+                    filepath = self.screenshots_dir / filename
+                    
+                    success = cv2.imwrite(str(filepath), annotated_frame)
+                    if success:
+                        self.logger.info(f"Screenshot saved: {filepath}")
+                    else:
+                        self.logger.error(f"Failed to save screenshot: {filepath}")
                 elif key == ord('r'):
                     # Reset statistics
                     self.stats = {

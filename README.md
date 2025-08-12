@@ -1,8 +1,8 @@
-# 🚨 Real-Time Threat Detection System
+# Real-Time Threat Detection System
 
 A specialized deep learning system designed for **real-time crime detection** using webcam feeds. The system detects people and weapons, and generates **"CRIME DETECTED"** alerts when weapons are found near people.
 
-## 📋 Project Information
+## Project Information
 
 **Created By:** Fahd Shah, 2025  
 **Institution:** Loughborough University  
@@ -13,15 +13,14 @@ Designed as apart of a MSc Systems Engineering Thesis Project:
 
 **And Remember:** *Ad Astra*
 
-## 🎯 Key Features
+## Features
 
-- **👤 Person Detection**: Accurate identification of people in real-time
-- **🔫 Weapon Detection**: Detects guns, knives, scissors, and other weapons
-- **🚨 Crime Detection**: Special "CRIME DETECTED" alerts when person + weapon detected together
-- **📹 Real-Time Processing**: Live webcam feed processing at 30 FPS
-- **🔊 Audio Alerts**: Sound notifications for threat detection
-- **💻 GPU Acceleration**: Uses your graphics card for faster processing
-- **📊 Live Statistics**: Real-time detection counters and performance metrics
+- ** Person Detection**: Accurate identification of people in real-time
+- ** Weapon Detection**: Detects guns, knives, scissors, and other weapons
+- ** Crime Detection**: Special "CRIME DETECTED" alerts when person + weapon detected together
+- ** Real-Time Processing**: Live webcam feed processing at 30 FPS
+- ** Audio Alerts**: Sound notifications for threat detection
+- ** Live Statistics**: Real-time detection counters and performance metrics
 
 ## Project Structure
 
@@ -35,11 +34,12 @@ threat_detection_system/
 ├── data/
 │   ├── models/          # Pre-trained model weights
 │   └── samples/         # Sample images/videos
+├── screenshots/          # Screenshots from detection sessions
 ├── tests/               # Unit tests
 └── requirements.txt     # Python dependencies
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Install Dependencies:**
    ```bash
@@ -55,6 +55,18 @@ threat_detection_system/
    - `Q` or `ESC` - Quit the system
    - `S` - Save screenshot
    - `R` - Reset statistics
+
+## Screenshots
+
+The system automatically saves screenshots when:
+- **Manual**: Press `S` key during detection to capture current frame
+- **Automatic**: Screenshots are saved when threats are detected (crime alerts)
+
+**Screenshot Location:**
+- All screenshots are saved in the `screenshots/` folder
+- Naming format: `threat_detection_screenshot_YYYYMMDD_HHMMSS.jpg`
+- Include detection boxes, confidence scores, and status overlay
+- Serve as evidence with timestamp information
 
 ## Configuration
 

@@ -19,31 +19,31 @@ def main():
     print("   Real-Time Crime Detection")
     print("🚨" * 20)
     
-    print("\n🔧 System designed for:")
-    print("   ✅ Person detection")
-    print("   ✅ Weapon detection (guns, knives, scissors, baseball bats)")
-    print("   ✅ Crime detection (person + weapon)")
-    print("   ✅ Real-time webcam processing")
-    print("   ✅ Visual and audio alerts")
+    print("\nSystem designed for:")
+    print("   - Person detection")
+    print("   - Weapon detection (guns, knives, scissors, baseball bats)")
+    print("   - Crime detection (person + weapon)")
+    print("   - Real-time webcam processing")
+    print("   - Visual and audio alerts")
     
-    print("\n🎮 Controls:")
+    print("\nControls:")
     print("   Q or ESC - Quit the system (EASY EXIT!)")
     print("   S - Save screenshot")
     print("   R - Reset statistics")
     
-    print("\n⚠️  IMPORTANT:")
+    print("\nIMPORTANT:")
     print("   - Make sure your webcam is connected")
     print("   - Good lighting helps detection accuracy")
     print("   - System uses your GPU if available")
     
     # Check if we're in the right directory
     if not Path("src").exists():
-        print("\n❌ Error: Please run this from the threat_detection_system directory")
+        print("\nError: Please run this from the threat_detection_system directory")
         input("Press Enter to exit...")
         return
     
     # Ask user for camera selection
-    print("\n📷 Camera Selection:")
+    print("\nCamera Selection:")
     print("   0 - Default webcam (most common)")
     print("   1 - Secondary camera")
     print("   2 - USB camera")
@@ -59,10 +59,10 @@ def main():
                     raise ValueError
             break
         except ValueError:
-            print("❌ Please enter a number between 0-2")
+            print("Please enter a number between 0-2")
     
     # Ask for sensitivity
-    print("\n🎯 Detection Sensitivity:")
+    print("\nDetection Sensitivity:")
     print("   1 - High sensitivity (detects more, may have false positives)")
     print("   2 - Medium sensitivity (balanced - recommended)")
     print("   3 - Low sensitivity (only very confident detections)")
@@ -82,21 +82,21 @@ def main():
                 raise ValueError
             break
         except ValueError:
-            print("❌ Please enter 1, 2, or 3")
+            print("Please enter 1, 2, or 3")
     
-    print(f"\n🚀 Starting threat detection with:")
+    print(f"\nStarting threat detection with:")
     print(f"   Camera: {camera_id}")
     print(f"   Sensitivity: {'High' if confidence == 0.3 else 'Medium' if confidence == 0.5 else 'Low'}")
     print(f"   Confidence threshold: {confidence}")
     
-    print("\n⏳ Initializing system...")
+    print("\nInitializing system...")
     
     # Add a countdown
     for i in range(3, 0, -1):
         print(f"   Starting in {i}...", end="\r")
         time.sleep(1)
     
-    print("   🎬 SYSTEM ACTIVE!     ")
+    print("   SYSTEM ACTIVE!     ")
     
     try:
         # Run the real-time threat detector
@@ -110,15 +110,15 @@ def main():
         subprocess.run(cmd)
         
     except KeyboardInterrupt:
-        print("\n\n⏹️  System stopped by user")
+        print("\n\nSystem stopped by user")
     except Exception as e:
-        print(f"\n❌ Error running threat detection: {e}")
+        print(f"\nError running threat detection: {e}")
         print("\nTroubleshooting:")
         print("1. Make sure you've run: python quick_start.py")
         print("2. Check that your webcam is working")
         print("3. Ensure all dependencies are installed")
     
-    print("\n👋 Thanks for using the Threat Detection System!")
+    print("\nThanks for using the Threat Detection System!")
     input("Press Enter to exit...")
 
 
